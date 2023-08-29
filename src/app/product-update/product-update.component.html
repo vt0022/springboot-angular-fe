@@ -1,0 +1,113 @@
+<div class="title">
+    <h1 class="text-4xl font-bold">UPDATE PRODUCT</h1>
+</div>
+<div class="main">
+    <!-- Create Form -->
+    <form id="form" (ngSubmit)="onSave()">
+
+        <!-- Details -->
+        <div class="form-control" hidden>
+            <label for="id" id="label-id">
+                Id
+            </label>
+            <input type="number" id="id" name="id" value="{{product.id}}" [(ngModel)]="product.id" />
+        </div>
+
+        <div class="form-control">
+            <label for="code" id="label-code">
+                Code
+            </label>
+            <input type="text" id="code" name="code" value="{{product.code}}" [(ngModel)]="product.code" readonly
+                disabled #code="ngModel" required>
+            <!-- Import FormsModule to use ngModule-->
+            <!-- Validate -->
+            <div *ngIf="(code.dirty || code.touched)" class="alert">
+                <div *ngIf="(code.dirty || code.touched)">
+                    Modification is not allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="name" id="label-name">
+                Name
+            </label>
+            <input type="text" id="name" name="name" value="{{product.name}}" [(ngModel)]="product.name" #name="ngModel"
+                required maxlength="90" />
+            <div *ngIf="name.invalid  && (code.dirty || code.touched)" class="alert">
+                <div *ngIf="name.errors?.['required']">
+                    Name is required
+                </div>
+                <div *ngIf="name.errors?.['maxlength']">
+                    Up to 90 characters are allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="category" id="label-category">
+                Category
+            </label>
+            <input type="text" id="category" name="category" value="{{product.category}}" [(ngModel)]="product.category"
+                #category="ngModel" required maxlength="28" />
+            <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert">
+                <div *ngIf="category.errors?.['required']">
+                    Category is required
+                </div>
+                <div *ngIf="category.errors?.['maxlength']">
+                    Up to 28 characters are allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="brand" id="label-brand">
+                Brand
+            </label>
+            <input type="text" id="brand" name="brand" value="{{product.brand}}" [(ngModel)]="product.brand"
+                #brand="ngModel" maxlength="28" />
+            <div *ngIf="brand.invalid && (brand.dirty || brand.touched)" class="alert">
+                <div *ngIf="brand.errors?.['maxlength']">
+                    Up to 28 characters are allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="type" id="label-type">
+                Type
+            </label>
+            <input type="text" id="type" name="type" value="product.type" [(ngModel)]="product.type" #type="ngModel"
+                maxlength="21">
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert">
+                <div *ngIf="type.errors?.['maxlength']">
+                    Up to 21 characters are allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="description" id="label-description">
+                Description
+            </label>
+            <textarea type="text" id="description" name="description" wrap="soft"
+                style="width: 100%; font-family: inherit;" [(ngModel)]="product.description" rows="4"
+                #description="ngModel" maxlength="180">{{product.description}}
+            </textarea>
+            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+                <div *ngIf="description.errors?.['maxlength']">
+                    Up to 180 characters are allowed.
+                </div>
+            </div>
+        </div>
+
+        <div class="row-1">
+            <button class="btn-save" type="submit">
+                <span class="material-symbols-outlined">
+                    save
+                </span>
+                Save
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+body {
+  background-color: #05c46b;
+  font-family: Verdana;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 30pt;
+}
+
+form {
+  background-color: #fff;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 30px 20px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-control {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-control input {
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-family: inherit;
+  padding: 10px;
+  display: block;
+  width: 95%;
+}
+
+/* Styling Button */
+button {
+  background-color: #05c46b;
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 21px;
+  display: flex;
+  width: 50%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.main {
+    padding-bottom: 20px;
+}
+
+.material-symbol-outlined {
+  background-color: #5f6368;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.btn-save {
+  background-color: #14a17e;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 20px;
+  color: white;
+  width: 20%;
+  cursor: pointer;
+}
+
+.row-1 {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+}

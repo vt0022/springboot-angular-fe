@@ -1,0 +1,68 @@
+<div class="title">
+    <h1 class="text-4xl font-bold">PRODUCT DETAIL</h1>
+</div>
+<div class="main">
+    <!-- Create Form -->
+    <form id="form">
+        <!-- Details -->
+        <div class="form-control" hidden>
+            <label for="id" id="label-id">
+                Id
+            </label>
+            <input type="number" id="id" value="{{product?.id}}" />
+        </div>
+
+        <div class="form-control">
+            <label for="code" id="label-code">
+                Code
+            </label>
+            <input type="text" id="code" value="{{product?.code}}" readonly/>
+        </div>
+
+        <div class="form-control">
+            <label for="name" id="label-name">
+                Name
+            </label>
+            <input type="text" id="name" value="{{product?.name}}" readonly/>
+        </div>
+
+        <div class="form-control">
+            <label for="category" id="label-category">
+                Category
+            </label>
+            <input type="text" id="category" value="{{product?.category}}" readonly/>
+        </div>
+
+        <div class="form-control">
+            <label for="brand" id="label-brand">
+                Brand
+            </label>
+            <input type="text" id="brand" value="{{product?.brand}}" readonly/>
+        </div>
+
+        <div class="form-control">
+            <label for="type" id="label-type">
+                Type
+            </label>
+            <input type="text" id="type" value="{{product?.type}}" readonly>
+        </div>
+
+        <div class="form-control">
+            <label for="description" id="label-description">
+                Description
+            </label>
+            <textarea type="text" id="description" wrap="soft"
+                style="width: 100%; font-family: inherit;" readonly rows="4">{{product?.description}}
+            </textarea>
+        </div>
+
+        <div class="row-1">
+            <button class="btn-edit" routerLink="/products/update/{{product?.code}}">
+                <span class="material-symbols-outlined">
+                    edit
+                </span>
+                Edit
+            </button>
+        </div>
+    </form>
+</div>

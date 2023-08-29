@@ -1,0 +1,55 @@
+<div class="title">
+    <h1 class="title">PRODUCT LIST</h1>
+</div>
+<div class="container">
+    <div class="row-1">
+        <button class="btn-add" [routerLink]="['add']">
+            <span class="material-symbols-outlined">
+                add
+            </span>
+            Add new product
+        </button>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody align="justify">
+                <tr *ngFor="let product of productList" class="product-row">
+                    <td (click)="getProductDetail(product.code)">
+                        {{product.name}}
+                    </td>
+                    <td *ngIf="product.description; else noDescription" (click)="getProductDetail(product.code)">
+                        {{product.description}}
+                    </td>
+                    <ng-template #noDescription>
+                        <td>No description available</td>
+                    </ng-template>
+                    <td class="action-button">
+                        <button class="btn-edit" routerLink="/products/update/{{product.code}}">
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                        </button>
+                    </td>
+                    <td class="action-button">
+                        <button class="btn-del" (click)="openDialog(product.code)">
+                            <span class=" material-symbols-outlined">
+                                delete
+                            </span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <mat-paginator [length]="totalElements" [pageSize]="size" [pageSizeOptions]="[5, 10, 15]"
+        (page)="onPageChange($event)" aria-label="Select page">
+    </mat-paginator>
+
+</div>
